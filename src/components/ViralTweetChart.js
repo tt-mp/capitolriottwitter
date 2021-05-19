@@ -70,7 +70,7 @@ function ViralTweetChart({ chartData }) {
         <div className="viral-tweets">
             <MuiThemeProvider theme={getMuiTheme()}>
                 <MUIDataTable
-                    title={"VIRAL TWEETS"}
+                    title={"TOP 25 VIRAL TWEETS"}
                     data={chartData}
                     columns={columns}
                     options={options}

@@ -30,7 +30,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 const TimeBarChart = ({ chartData }) => (
     <div className='tweet-count'>
-        <ResponsiveContainer width = '95%' height ={325} >
+        <ResponsiveContainer width = '98%' height ={325} >
             <BarChart 
                 data={chartData} 
                 width={500}

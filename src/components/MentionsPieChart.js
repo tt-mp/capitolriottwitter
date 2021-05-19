@@ -58,7 +58,7 @@ function MentionsPieChart({ chartData }) {
                 {`@${payload.handle}`}
             </text>
             <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fontSize={10} fill="#999">
-                {`${payload.mentions} replies`}
+                {`${payload.mentions} mentions`}
             </text>
         </g>
     );
