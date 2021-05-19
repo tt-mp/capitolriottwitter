@@ -3,9 +3,7 @@ import MUIDataTable from "mui-datatables";
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
 function ViralUserChart({ chartData }) {
@@ -14,11 +12,9 @@ function ViralUserChart({ chartData }) {
         options: {
             customBodyRender: (value, tableMeta, updateValue) => {
                 return (
-                  <a href={`https://twitter.com/${value}`} target='_blank'>{`@${value}`}</a>
+                  <a href={`https://twitter.com/${value}`} target='_blank' rel="noreferrer">{`@${value}`}</a>
                 )}
         }}, "follows"];
-
-    const rows = [];
 
     const options = {
         filter: false,
@@ -36,20 +32,15 @@ function ViralUserChart({ chartData }) {
         selectableRows: 'none',
         expandableRows: true,
         renderExpandableRow: (rowData, rowMeta) => {
-            console.log(rowData, rowMeta);
             return (
               <>
                 <tr>
-                  <td colSpan={1}>
+                  <td colSpan={3}>
                     <TableContainer>
                       <Table style={{ minWidth: "500" }} aria-label="simple table">
                         <TableBody>
-                          {rows.map(row => (
-                            <TableRow key={row.name}>
-                              <TableCell component="th" scope="row">
-                                {row.body}
-                              </TableCell>
-                            </TableRow>
+                          {chartData[rowMeta.dataIndex].tweets.map(tweet => (
+                            <TableRow key={tweet}><td>{tweet}</td></TableRow>
                           ))}
                         </TableBody>
                       </Table>
@@ -84,7 +75,6 @@ function ViralUserChart({ chartData }) {
                 fontSize: 12,
                 padding: 3,
                 textAlign: 'center',
-                padding: 3,
                 paddingRight: 5
             }
         }

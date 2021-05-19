@@ -8,7 +8,7 @@ function ViralTweetChart({ chartData }) {
         options: {
             customBodyRender: (value) => {
                 return (
-                  <a href={`https://twitter.com/${value}`} target='_blank'>{`@${value}`}</a>
+                  <a href={`https://twitter.com/${value}`} target='_blank' rel="noreferrer">{`@${value}`}</a>
                 )}   
         }}, "post", 
             {
@@ -69,7 +69,7 @@ function ViralTweetChart({ chartData }) {
         <div className="viral-tweets">
             <MuiThemeProvider theme={getMuiTheme()}>
                 <MUIDataTable
-                    title={"MOST RETWEETED"}
+                    title={"VIRAL TWEETS"}
                     data={chartData}
                     columns={columns}
                     options={options}
