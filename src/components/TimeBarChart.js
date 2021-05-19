@@ -19,7 +19,8 @@ const CustomTooltip = ({ active, payload, label }) => {
             <div className="custom-tooltip">
                 <b>{`${moment(label * 1000).format('LT')}`}</b><br/>
                 Posts: {payload[0].value}<br/>
-                Shares: {payload[1].value}
+                Shares: {payload[1].value}<br/>
+                Total: {payload[0].value + payload[1].value}
             </div>
         );
     }
