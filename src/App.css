@@ -50,7 +50,7 @@ h1 {
 .mentions {
     grid-row: 3;
     grid-column: 1 / span 3;
-    padding-top: 74px;
+    padding-top: 40px;
     font-size: 14px;
     font-weight: bold;
 }
@@ -58,7 +58,7 @@ h1 {
 .viral-users {
     grid-row: 3 / span 2;
     grid-column: 4 / span 5;
-    margin-top: 50px;
+    padding-top: 15px;
     margin-right: 40px;
     font-size: 12px;
     padding-left: 60px;
