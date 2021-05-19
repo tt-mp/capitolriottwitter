@@ -13,6 +13,20 @@ import {
     Legend
 } from 'recharts'
 
+const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+        return (
+            <div className="custom-tooltip">
+                <b>{`${moment(label * 1000).format('LT')}`}</b><br/>
+                Posts: {payload[0].value}<br/>
+                Shares: {payload[1].value}
+            </div>
+        );
+    }
+  
+    return null;
+};
+
 const TimeBarChart = ({ chartData }) => (
     <div className='tweet-count'>
         <ResponsiveContainer width = '95%' height ={325} >
@@ -35,9 +49,9 @@ const TimeBarChart = ({ chartData }) => (
                 />
                 <YAxis />
                 <Legend />
-                <Bar dataKey="post_count" stackId="a" fill="#8884d8" />
-                <Bar dataKey="share_count" stackId="a" fill="#82ca9d" />
-                <Tooltip />
+                <Bar dataKey="Posts" stackId="a" fill="#8884d8" />
+                <Bar dataKey="Shares" stackId="a" fill="#82ca9d" />
+                <Tooltip content={<CustomTooltip />} />
             </BarChart>
         </ResponsiveContainer>
     </div>
