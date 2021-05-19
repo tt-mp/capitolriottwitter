@@ -7,7 +7,7 @@ import MentionsPieChart from './components/MentionsPieChart.js';
 import ViralUserChart from './components/ViralUserChart.js';
 
 import VerbByTime from './assets/json/verb_by_time.json';
-import ViralTweets from './assets/json/viral.json';
+import ViralTweets from './assets/json/viral_tweets.json';
 import Hashtags from './assets/json/hashtags.json';
 import MostMentioned from './assets/json/most_mentioned.json';
 import ViralAccounts from './assets/json/viral_accounts.json';
