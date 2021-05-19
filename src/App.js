@@ -20,6 +20,7 @@ function App() {
       <div className="about">
         <span className='title'>Jan 6, 2021</span>
         <p>Twitter stats from the day of the capitol riots in Washington, DC.</p>
+        <p>Time zone is UTC.</p>
       </div>
 
       <TimeBarChart chartData={VerbByTime} />
