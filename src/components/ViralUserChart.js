@@ -1,20 +1,22 @@
 import React from 'react';
+
 import MUIDataTable from "mui-datatables";
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableRow from "@material-ui/core/TableRow";
 
 function ViralUserChart({ chartData }) {
-    const columns = [{
+    const columns = 
+    [{
         name: "handle", 
         options: {
-            customBodyRender: (value, tableMeta, updateValue) => {
-                return (
-                  <a href={`https://twitter.com/${value}`} target='_blank' rel="noreferrer">{`@${value}`}</a>
-                )}
-        }}, "follows"];
+            customBodyRender: (value) => {
+                return (<a href={`https://twitter.com/${value}`} target='_blank' rel="noreferrer">{`@${value}`}</a>)}
+        }}
+        , "follows"];
 
     const options = {
         filter: false,
@@ -33,23 +35,23 @@ function ViralUserChart({ chartData }) {
         expandableRows: true,
         renderExpandableRow: (rowData, rowMeta) => {
             return (
-              <>
-                <tr>
-                  <td colSpan={3}>
-                    <TableContainer>
-                      <Table style={{ minWidth: "500" }} aria-label="simple table">
-                        <TableBody>
-                          {chartData[rowMeta.dataIndex].tweets.map(tweet => (
-                            <TableRow key={tweet}><td>{tweet}</td></TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </TableContainer>
-                  </td>
-                </tr>
-              </>
+                <>
+                    <tr>
+                        <td colSpan={3}>
+                            <TableContainer>
+                                <Table style={{ minWidth: "500" }} aria-label="simple table">
+                                    <TableBody>
+                                        {chartData[rowMeta.dataIndex].tweets.map(tweet => (
+                                            <TableRow key={tweet}><td>{tweet}</td></TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </td>
+                    </tr>
+                </>
             );
-          },
+        },
     };
   
     const getMuiTheme = () => createMuiTheme({

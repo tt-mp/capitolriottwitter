@@ -3,25 +3,29 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 
 import {
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend
+    ResponsiveContainer,
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    Legend
 } from 'recharts'
 
 const TimeBarChart = ({ chartData }) => (
     <div className='tweet-count'>
-        <ResponsiveContainer width = '95%' height = {325} >
-            <BarChart data={chartData} width={500} height={300} margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}>
+        <ResponsiveContainer width = '95%' height ={325} >
+            <BarChart 
+                data={chartData} 
+                width={500}
+                height={300}
+                margin={{
+                    top: 20,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+            }}>
               
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
@@ -40,12 +44,12 @@ const TimeBarChart = ({ chartData }) => (
 )
 
 TimeBarChart.propTypes = {
-  chartData: PropTypes.arrayOf(
-    PropTypes.shape({
-      time: PropTypes.number,
-      value: PropTypes.number
-    })
-  ).isRequired
+    chartData: PropTypes.arrayOf(
+        PropTypes.shape({
+        time: PropTypes.number,
+        value: PropTypes.number
+        })
+    ).isRequired
 }
 
 export default TimeBarChart
