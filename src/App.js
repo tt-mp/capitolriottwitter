@@ -19,8 +19,9 @@ function App() {
     <div className="app">
       <div className="about">
         <span className='title'>Jan 6, 2021</span>
-        <p>The day of the capitol riots in Washington, DC.</p>
+        <p>Twitter stats from the day of the capitol riots in Washington, DC.</p>
       </div>
+
       <TimeBarChart chartData={VerbByTime} />
       <HashTagPieChart chartData={Hashtags} />
       <ViralTweetChart chartData={ViralTweets} />
