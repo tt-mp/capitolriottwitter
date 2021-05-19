@@ -66,7 +66,7 @@ function MentionsPieChart({ chartData }) {
 
   return (
     <div className="mentions">
-        TOP 10 MOST REPLIED TO USERS
+        TOP 10 MENTIONED USERS (REPLIES + TAGS)
         <ResponsiveContainer width="100%" height={500}>
             <PieChart width="100%" height={300}>
                 <Pie
