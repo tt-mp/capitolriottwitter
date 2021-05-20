@@ -1,7 +1,7 @@
 import React from 'react';
 
-import TimeBarChart from './components/TimeBarChart.js';
-import HashTagPieChart from './components/HashTagPieChart.js';
+import TimeBarChart from './components/tweet_timechart/TimeBarChart.js';
+import HashTagPieChart from './components/hashtag_piechart/HashTagPieChart.js';
 import ViralTweetChart from './components/ViralTweetChart.js';
 import MentionsPieChart from './components/MentionsPieChart.js';
 import ViralUserChart from './components/ViralUserChart.js';
