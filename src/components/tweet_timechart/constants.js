@@ -11,8 +11,8 @@ export const MARGIN = {
 }
 
 export const TIME_NAME = 'time';
-export const POST_NAME = "Posts";
-export const SHARE_NAME = "Shares";
+export const POST_NAME = 'Posts';
+export const SHARE_NAME = 'Shares';
 
-export const POST_COLOR = "#8884d8";
-export const SHARE_COLOR = "#82ca9d";
+export const POST_COLOR = '#8884d8';
+export const SHARE_COLOR = '#82ca9d';

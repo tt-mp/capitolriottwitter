@@ -24,7 +24,7 @@ const TimeBarChart = ({ chartData }) => (
                 width={CONSTANTS.WIDTH}
                 height={CONSTANTS.HEIGHT}
                 margin={{ 
-                    top: CONSTANTS.MARGIN['TOP'],
+                    top: CONSTANTS.MARGIN.TOP,
                     right: CONSTANTS.MARGIN.RIGHT,
                     left: CONSTANTS.MARGIN.LEFT,
                     bottom: CONSTANTS.MARGIN.BOTTOM }}>

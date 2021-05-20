@@ -20,7 +20,7 @@ function ViralTweetChart({ chartData }) {
                           <center>{value}</center>
                         )}   
                 }
-        }];
+    }];
 
     const options = {
         filter: false,

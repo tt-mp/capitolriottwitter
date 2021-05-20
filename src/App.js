@@ -3,7 +3,7 @@ import React from 'react';
 import TimeBarChart from './components/tweet_timechart/TimeBarChart.js';
 import HashTagPieChart from './components/hashtag_piechart/HashTagPieChart.js';
 import ViralTweetChart from './components/ViralTweetChart.js';
-import MentionsPieChart from './components/MentionsPieChart.js';
+import MentionsPieChart from './components/mentions_piechart/MentionsPieChart.js';
 import ViralUserChart from './components/ViralUserChart.js';
 
 import VerbByTime from './assets/json/verb_by_time.json';
