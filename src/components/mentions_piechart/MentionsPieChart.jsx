@@ -9,15 +9,15 @@ function MentionsPieChart({ chartData }) {
 
   return (
     <div className='mentions'>
-        {CONSTANTS.TITLE}
+        TOP 10 MENTIONED USERS (REPLIES + TAGS)
         <ResponsiveContainer width={CONSTANTS.CONTAINER_WIDTH} height={CONSTANTS.CONTAINER_HEIGHT}>
-            <PieChart width={CONSTANTS.WIDTH} height={CONSTANTS.HEIGHT}>
+            <PieChart width={CONSTANTS.CHART_WIDTH} height={CONSTANTS.CHART_HEIGHT}>
                 <Pie
                     activeIndex={activeIndex}
                     activeShape={renderActiveShape}
                     data={chartData}
-                    cx={CONSTANTS.MIDDLE_PERCENT}
-                    cy={CONSTANTS.MIDDLE_PERCENT}
+                    cx='50%'
+                    cy='50%'
                     labelLine={false}
                     label={renderCustomizedLabel}
                     outerRadius={140}

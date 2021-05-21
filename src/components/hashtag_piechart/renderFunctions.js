@@ -22,6 +22,7 @@ export function renderActiveShape(props) {
 
     const sin = getSin(midAngle);
     const cos = getCos(midAngle);
+    const direction = cos >= 0 ? 1 : -1;
 
     // Get start coordinates of arrow.
     // Begins on the edge of outer circle
@@ -33,7 +34,7 @@ export function renderActiveShape(props) {
     const l1_y = cy + (outerRadius + CONSTANTS.ARROW_LENGTH) * sin;
 
     // Draw line toward extra information
-    const l2_x = l1_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH;
+    const l2_x = l1_x + direction * CONSTANTS.ARROW_LENGTH;
     const l2_y = l1_y;
 
     // Determine direction of arrow
@@ -42,7 +43,7 @@ export function renderActiveShape(props) {
     return (
         <g>
             {/* Display hashtag in the center */}
-            {renderText(`#${payload.hashtag}`, cx, cy, 8, 12, 'middle', fill)}
+            {renderText(`#${payload.hashtag}`, cx, cy, 8, CONSTANTS.MAIN_TEXT_SIZE, 'middle', fill)}
 
             {/* Draw inner circle */}
             {renderSector(cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill)}
@@ -58,9 +59,9 @@ export function renderActiveShape(props) {
 
             {/* Display extra information */}
             {renderText(
-                `${value} tweets`,l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 0, CONSTANTS.INFO_COUNT_SIZE, textAnchor)}
+                `${value} tweets`,l2_x + direction * CONSTANTS.ARROW_LENGTH, l2_y, 0, CONSTANTS.MAIN_TEXT_SIZE, textAnchor)}
             {renderText(
-                `${(percent * 100).toFixed(2)}%`, l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 14, CONSTANTS.INFO_PERCENT_SIZE, textAnchor)}
+                `${(percent * 100).toFixed(2)}%`, l2_x + direction * CONSTANTS.ARROW_LENGTH, l2_y, 14, CONSTANTS.SUB_TEXT_SIZE, textAnchor)}
         </g>
     );
 };

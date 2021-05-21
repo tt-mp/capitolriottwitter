@@ -67,7 +67,7 @@ function ViralUserChart({ chartData }) {
         <div className='viral-users'>
             <MuiThemeProvider theme={getMuiTheme()}>
                 <MUIDataTable
-                    title={'TOP 10 USERS WITH MOST FOLLOWS IN 24HRS'}
+                    title={'TOP 10 FOLLOWED USERS'}
                     data={chartData}
                     columns={columns}
                     options={options}

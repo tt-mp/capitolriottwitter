@@ -20,6 +20,7 @@ export function renderActiveShape(props) {
 
     const sin = getSin(midAngle);
     const cos = getCos(midAngle);
+    const direction = cos >= 0 ? 1 : -1;
 
     // Get start coordinates of arrow.
     // Begins on the edge of outer circle
@@ -31,7 +32,7 @@ export function renderActiveShape(props) {
     const l1_y = cy + (outerRadius + CONSTANTS.ARROW_LENGTH) * sin;
 
     // Draw line toward extra information
-    const l2_x = l1_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH;
+    const l2_x = l1_x + direction * CONSTANTS.ARROW_LENGTH;
     const l2_y = l1_y;
 
     // Determine direction of arrow
@@ -55,8 +56,8 @@ export function renderActiveShape(props) {
             <circle cx={l2_x} cy={l2_y} r={2} fill={fill} stroke='none' />
 
             {/* Display extra information */}
-            {renderText(`@${payload.handle}`, l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 0, CONSTANTS.INFO_HANDLE_SIZE, textAnchor, '#333')}
-            {renderText(`${payload.mentions} mentions`, l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 14, CONSTANTS.INFO_MENTIONS_SIZE, textAnchor, '#999')}
+            {renderText(`@${payload.handle}`, l2_x + direction * CONSTANTS.ARROW_LENGTH, l2_y, 0, CONSTANTS.MAIN_TEXT_SIZE, textAnchor)}
+            {renderText(`${payload.mentions} mentions`, l2_x + direction * CONSTANTS.ARROW_LENGTH, l2_y, 14, CONSTANTS.SUB_TEXT_SIZE, textAnchor)}
         </g>
     );
 };
@@ -68,7 +69,7 @@ export function renderCustomizedLabel({cx, cy, midAngle, innerRadius, outerRadiu
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
     return (
-        <text x={x} y={y} fontSize={CONSTANTS.INFO_PERCENT_SIZE} fill='white' textAnchor='middle' dominantBaseline='central'>
+        <text x={x} y={y} fontSize={CONSTANTS.SUB_TEXT_SIZE} fill='white' textAnchor='middle' dominantBaseline='central'>
             {`${(percent * 100).toFixed(0)}%`}
         </text>
     )
