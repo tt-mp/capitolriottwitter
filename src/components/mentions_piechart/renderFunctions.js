@@ -1,9 +1,9 @@
 import { Cell, Sector } from 'recharts';
-import { RADIAN, COLORS } from './constants.js';
+import * as CONSTANTS from './constants.js';
 import { getSin, getCos } from '../../helpers/functions.js';
 
 export function renderCell(index) {
-    return <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+    return <Cell key={`cell-${index}`} fill={CONSTANTS.COLORS[index % CONSTANTS.COLORS.length]} />
 }
 
 export function renderActiveShape(props) {
@@ -23,8 +23,8 @@ export function renderActiveShape(props) {
 
     // Get start coordinates of arrow.
     // Begins on the edge of outer circle
-    const mx = cx + (outerRadius + 10) * cos;
-    const my = cy + (outerRadius + 10) * sin;
+    const mx = cx + (outerRadius + CONSTANTS.ARROW_START) * cos;
+    const my = cy + (outerRadius + CONSTANTS.ARROW_START) * sin;
 
     // Draw line outward
     const l1_x = cx + (outerRadius + 30) * cos;
@@ -68,8 +68,8 @@ export function renderActiveShape(props) {
 export function renderCustomizedLabel({cx, cy, midAngle, innerRadius, outerRadius, percent}) {
     const radius = innerRadius + (outerRadius - innerRadius) * .7;
 
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const x = cx + radius * Math.cos(-midAngle * CONSTANTS.RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * CONSTANTS.RADIAN);
 
     return (
         <text x={x} y={y} fontSize={12} fill='white' textAnchor={'middle'} dominantBaseline='central'>
