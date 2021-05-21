@@ -7,13 +7,11 @@ import SubTable from './SubTable.jsx';
 
 function ViralUserChart({ chartData }) {
     const columns = 
-    [
-        {
-            name: 'handle', 
-            options: {
-                customBodyRender: (value) => <a href={`https://twitter.com/${value}`} target='_blank' rel='noreferrer'>{`@${value}`}</a>}
-        }
-        , "follows"];
+    [{
+        name: 'handle', 
+        options: {
+            customBodyRender: (value) => <a href={`https://twitter.com/${value}`} target='_blank' rel='noreferrer'>{`@${value}`}</a>}
+    }, "follows"];
 
     const options = {
         filter: false,
@@ -28,7 +26,7 @@ function ViralUserChart({ chartData }) {
         selectableRows: 'none',
         expandableRows: true,
         renderExpandableRow: (rowData, rowMeta) => 
-            <SubTable title='POST' rows={chartData[rowMeta.dataIndex].tweets} />
+            <SubTable title='POSTS' rows={chartData[rowMeta.dataIndex].tweets} />
     };
   
     const getMuiTheme = () => createMuiTheme({

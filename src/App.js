@@ -1,10 +1,10 @@
 import React from 'react';
 
-import TimeBarChart from './components/tweet_timechart/TimeBarChart.js';
-import HashTagPieChart from './components/hashtag_piechart/HashTagPieChart.js';
-import ViralTweetChart from './components/ViralTweetChart.js';
-import MentionsPieChart from './components/mentions_piechart/MentionsPieChart.js';
-import ViralUserChart from './components/viraluser_chart/ViralUserChart.js';
+import TimeBarChart from './components/tweet_timechart/TimeBarChart.jsx';
+import HashTagPieChart from './components/hashtag_piechart/HashTagPieChart.jsx';
+import ViralTweetChart from './components/ViralTweetChart.jsx';
+import MentionsPieChart from './components/mentions_piechart/MentionsPieChart.jsx';
+import ViralUserChart from './components/viraluser_chart/ViralUserChart.jsx';
 
 import VerbByTime from './assets/json/verb_by_time.json';
 import ViralTweets from './assets/json/viral_tweets.json';

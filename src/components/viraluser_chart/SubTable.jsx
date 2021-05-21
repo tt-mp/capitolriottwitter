@@ -15,7 +15,7 @@ function SubTable({ title, rows }) {
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell align='center' size='small'><b>POST</b></TableCell>
+                                <TableCell align='center' size='small'><b>{title}</b></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
