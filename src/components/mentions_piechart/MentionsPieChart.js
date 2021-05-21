@@ -8,21 +8,21 @@ function MentionsPieChart({ chartData }) {
     const onPieEnter = (_, index) => { setActiveIndex(index); };
 
   return (
-    <div className="mentions">
+    <div className='mentions'>
         {CONSTANTS.TITLE}
-        <ResponsiveContainer width="100%" height={500}>
-            <PieChart width="100%" height={300}>
+        <ResponsiveContainer width={CONSTANTS.CONTAINER_WIDTH} height={CONSTANTS.CONTAINER_HEIGHT}>
+            <PieChart width={CONSTANTS.WIDTH} height={CONSTANTS.HEIGHT}>
                 <Pie
                     activeIndex={activeIndex}
                     activeShape={renderActiveShape}
                     data={chartData}
-                    cx="50%"
-                    cy="50%"
+                    cx={CONSTANTS.MIDDLE_PERCENT}
+                    cy={CONSTANTS.MIDDLE_PERCENT}
                     labelLine={false}
                     label={renderCustomizedLabel}
                     outerRadius={140}
-                    fill="#8884d8"
-                    dataKey="mentions"
+                    fill='#8884d8'
+                    dataKey='mentions'
                     onMouseEnter={onPieEnter}
                 >
                     {chartData.map((entry, index) => (renderCell(index)))}

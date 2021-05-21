@@ -47,20 +47,20 @@ export function renderActiveShape(props) {
             {/* Draw inner circle */}
             {renderSector(cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill)}
 
-            {/* Draw outer circle */}
+            {/* Draw outer-edge circle highlight */}
             {renderSector(cx, cy, outerRadius + CONSTANTS.EDGE_START, outerRadius + CONSTANTS.EDGE_STOP, startAngle, endAngle, fill)}
 
             {/* Draw arrow to extra information */}
             <path d={`M${mx},${my}L${l1_x},${l2_y}L${l2_x},${l2_y}`} stroke={fill} fill='none' />
 
-            {/* Draw edge highlight of moused-over section */}
+            {/* Draw arrow circle */}
             <circle cx={l2_x} cy={l2_y} r={2} fill={fill} stroke='none' />
 
             {/* Display extra information */}
             {renderText(
                 `${value} tweets`,l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 0, CONSTANTS.INFO_COUNT_SIZE, textAnchor, '#333')}
             {renderText(
-                `${(percent * 100).toFixed(2)}%`, l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 16, CONSTANTS.INFO_PERCENT_SIZE, textAnchor, '#999')}
+                `${(percent * 100).toFixed(2)}%`, l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 14, CONSTANTS.INFO_PERCENT_SIZE, textAnchor, '#999')}
         </g>
     );
 };

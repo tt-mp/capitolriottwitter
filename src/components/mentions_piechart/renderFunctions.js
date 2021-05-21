@@ -27,11 +27,11 @@ export function renderActiveShape(props) {
     const my = cy + (outerRadius + CONSTANTS.ARROW_START) * sin;
 
     // Draw line outward
-    const l1_x = cx + (outerRadius + 30) * cos;
-    const l1_y = cy + (outerRadius + 30) * sin;
+    const l1_x = cx + (outerRadius + CONSTANTS.ARROW_LENGTH) * cos;
+    const l1_y = cy + (outerRadius + CONSTANTS.ARROW_LENGTH) * sin;
 
     // Draw line toward extra information
-    const l2_x = l1_x + (cos >= 0 ? 1 : -1) * 22;
+    const l2_x = l1_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH;
     const l2_y = l1_y;
 
     // Determine direction of arrow
@@ -42,37 +42,33 @@ export function renderActiveShape(props) {
             {/* Dummy to hold percent text */}
             <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill} />
 
-            <Sector
-                cx={cx}
-                cy={cy}
-                innerRadius={innerRadius}
-                outerRadius={outerRadius}
-                startAngle={startAngle}
-                endAngle={endAngle}
-                fill={fill}
-            />
+            {/* Draw inner circle */}
+            {renderSector(cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill)}
+
+            {/* Draw outer-edge circle highlight */}
+            {renderSector(cx, cy, outerRadius + CONSTANTS.EDGE_START, outerRadius + CONSTANTS.EDGE_STOP, startAngle, endAngle, fill)}
 
             {/* Draw arrow to extra information */}
             <path d={`M${mx},${my}L${l1_x},${l1_y}L${l2_x},${l2_y}`} stroke={fill} fill='none' />
 
-            {/* Draw edge highlight of moused-over section */}
+            {/* Draw arrow circle */}
             <circle cx={l2_x} cy={l2_y} r={2} fill={fill} stroke='none' />
 
             {/* Display extra information */}
-            {renderText(`@${payload.handle}`, l2_x + (cos >= 0 ? 1 : -1) * 12, l2_y, 0, 12, textAnchor, '#333')}
-            {renderText(`${payload.mentions} mentions`, l2_x + (cos >= 0 ? 1 : -1) * 12, l2_y, 18, 10, textAnchor, '#999')}
+            {renderText(`@${payload.handle}`, l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 0, CONSTANTS.INFO_HANDLE_SIZE, textAnchor, '#333')}
+            {renderText(`${payload.mentions} mentions`, l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 14, CONSTANTS.INFO_MENTIONS_SIZE, textAnchor, '#999')}
         </g>
     );
 };
 
 export function renderCustomizedLabel({cx, cy, midAngle, innerRadius, outerRadius, percent}) {
+    {/* Calculate distance from center */}
     const radius = innerRadius + (outerRadius - innerRadius) * .7;
-
     const x = cx + radius * Math.cos(-midAngle * CONSTANTS.RADIAN);
     const y = cy + radius * Math.sin(-midAngle * CONSTANTS.RADIAN);
 
     return (
-        <text x={x} y={y} fontSize={12} fill='white' textAnchor={'middle'} dominantBaseline='central'>
+        <text x={x} y={y} fontSize={CONSTANTS.INFO_PERCENT_SIZE} fill='white' textAnchor='middle' dominantBaseline='central'>
             {`${(percent * 100).toFixed(0)}%`}
         </text>
     )
@@ -83,5 +79,19 @@ function renderText(text, x, y, dy, fontSize, textAnchor, fill) {
         <text x={x} y={y} dy={dy} fontSize={fontSize} textAnchor={textAnchor} fill={fill}>
             {text}
         </text>
+    )
+}
+
+function renderSector(cx, cy, innerRadius, outerRadius, startAngle, endAngle,fill) {
+    return (
+        <Sector
+            cx={cx}
+            cy={cy}
+            innerRadius={innerRadius}
+            outerRadius={outerRadius}
+            startAngle={startAngle}
+            endAngle={endAngle}
+            fill={fill}
+        />       
     )
 }
