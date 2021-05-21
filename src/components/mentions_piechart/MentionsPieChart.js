@@ -21,7 +21,6 @@ function MentionsPieChart({ chartData }) {
                     labelLine={false}
                     label={renderCustomizedLabel}
                     outerRadius={140}
-                    fill='#8884d8'
                     dataKey='mentions'
                     onMouseEnter={onPieEnter}
                 >

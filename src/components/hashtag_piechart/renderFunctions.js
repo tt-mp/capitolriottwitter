@@ -1,6 +1,6 @@
 import { Cell, Sector } from 'recharts';
 import * as CONSTANTS from './constants.js';
-import { getSin, getCos } from '../../helpers/functions.js';
+import { getSin, getCos } from '../helpers/functions.js';
 
 export function renderCell(index) {
     return <Cell key={`cell-${index}`} fill={CONSTANTS.COLORS[index % CONSTANTS.COLORS.length]} />
@@ -58,9 +58,9 @@ export function renderActiveShape(props) {
 
             {/* Display extra information */}
             {renderText(
-                `${value} tweets`,l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 0, CONSTANTS.INFO_COUNT_SIZE, textAnchor, '#333')}
+                `${value} tweets`,l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 0, CONSTANTS.INFO_COUNT_SIZE, textAnchor)}
             {renderText(
-                `${(percent * 100).toFixed(2)}%`, l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 14, CONSTANTS.INFO_PERCENT_SIZE, textAnchor, '#999')}
+                `${(percent * 100).toFixed(2)}%`, l2_x + (cos >= 0 ? 1 : -1) * CONSTANTS.ARROW_LENGTH, l2_y, 14, CONSTANTS.INFO_PERCENT_SIZE, textAnchor)}
         </g>
     );
 };

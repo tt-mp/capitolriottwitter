@@ -1,6 +1,6 @@
 import { Cell, Sector } from 'recharts';
 import * as CONSTANTS from './constants.js';
-import { getSin, getCos } from '../../helpers/functions.js';
+import { getSin, getCos, RADIAN } from '../helpers/functions.js';
 
 export function renderCell(index) {
     return <Cell key={`cell-${index}`} fill={CONSTANTS.COLORS[index % CONSTANTS.COLORS.length]} />
@@ -40,7 +40,7 @@ export function renderActiveShape(props) {
     return (
         <g>
             {/* Dummy to hold percent text */}
-            <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill} />
+            <text x={cx} y={cy} dy={8} textAnchor='middle' fill={fill} />
 
             {/* Draw inner circle */}
             {renderSector(cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill)}
@@ -62,10 +62,10 @@ export function renderActiveShape(props) {
 };
 
 export function renderCustomizedLabel({cx, cy, midAngle, innerRadius, outerRadius, percent}) {
-    {/* Calculate distance from center */}
+    // Calculate distance from center
     const radius = innerRadius + (outerRadius - innerRadius) * .7;
-    const x = cx + radius * Math.cos(-midAngle * CONSTANTS.RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * CONSTANTS.RADIAN);
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
     return (
         <text x={x} y={y} fontSize={CONSTANTS.INFO_PERCENT_SIZE} fill='white' textAnchor='middle' dominantBaseline='central'>

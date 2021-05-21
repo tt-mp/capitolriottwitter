@@ -16,9 +16,9 @@ import './App.css';
 
 function App() {
   return (
-    <div className="app">
-      <div className="about">
-        <span className='title'>Jan 6, 2021</span>
+    <div className='app'>
+      <div className='about'>
+        <span className='title'>Jan 6, 21</span>
         <p>Twitter stats from the day of the capitol riots in Washington, DC.</p>
         <p>Time zone is UTC.</p>
       </div>

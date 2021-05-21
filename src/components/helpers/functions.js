@@ -1,14 +1,15 @@
 import moment from 'moment';
-import * as CONSTANTS from './constants.js';
+
+export const RADIAN = Math.PI / 180;
 
 export function timeFromUnix(unixTime) {
     return moment(unixTime * 1000).format('LT');
 }
 
 export function getSin(angle) {
-    return Math.sin(-CONSTANTS.RADIAN * angle);
+    return Math.sin(-RADIAN * angle);
 }
 
 export function getCos(angle) {
-    return Math.cos(-CONSTANTS.RADIAN * angle);
+    return Math.cos(-RADIAN * angle);
 }

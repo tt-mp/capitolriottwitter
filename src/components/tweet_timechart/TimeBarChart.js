@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import * as CONSTANTS from './constants.js';
 import TimeChartTooltip from './TimeChartTooltip.jsx';
-import { timeFromUnix } from '../../helpers/functions.js';
+import { timeFromUnix } from '../helpers/functions.js';
 
 import {
     ResponsiveContainer,
@@ -29,7 +29,7 @@ const TimeBarChart = ({ chartData }) => (
                     left: CONSTANTS.MARGIN.LEFT,
                     bottom: CONSTANTS.MARGIN.BOTTOM }}>
               
-                <CartesianGrid strokeDasharray="3 3" />
+                <CartesianGrid strokeDasharray='3 3' />
                 <XAxis
                     dataKey = {CONSTANTS.TIME_NAME}
                     domain = {[1609909200, 1609995600]}
@@ -37,8 +37,8 @@ const TimeBarChart = ({ chartData }) => (
                 />
                 <YAxis />
                 <Legend />
-                <Bar dataKey={CONSTANTS.POST_NAME} stackId="a" fill={CONSTANTS.POST_COLOR} />
-                <Bar dataKey={CONSTANTS.SHARE_NAME} stackId="a" fill={CONSTANTS.SHARE_COLOR} />
+                <Bar dataKey={CONSTANTS.POST_NAME} stackId='a' fill={CONSTANTS.POST_COLOR} />
+                <Bar dataKey={CONSTANTS.SHARE_NAME} stackId='a' fill={CONSTANTS.SHARE_COLOR} />
                 <Tooltip content={<TimeChartTooltip />} />
             </BarChart>
         </ResponsiveContainer>

@@ -23,7 +23,7 @@ function HashTagPieChart({ chartData }) {
                         cy={CONSTANTS.MIDDLE_PERCENT}
                         innerRadius={CONSTANTS.INNER_RADIUS}
                         outerRadius={CONSTANTS.OUTER_RADIUS}
-                        dataKey='count'
+                        dataKey={CONSTANTS.COUNT}
                         onMouseEnter={onPieEnter}
                     >
                         {chartData.map((entry, index) => (renderCell(index)))}

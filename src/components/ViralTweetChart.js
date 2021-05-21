@@ -1,25 +1,17 @@
 import React from 'react';
 
-import MUIDataTable from "mui-datatables";
+import MUIDataTable from 'mui-datatables';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 function ViralTweetChart({ chartData }) {
-    const columns = [{
-        name: "handle", 
-        options: {
-            customBodyRender: (value) => {
-                return (
-                  <a href={`https://twitter.com/${value}`} target='_blank' rel="noreferrer">{`@${value}`}</a>
-                )}   
-        }}, "post", 
-            {
-                name: "retweets",
-                options: {
-                    customBodyRender: (value) => {
-                        return (
-                          <center>{value}</center>
-                        )}   
-                }
+    const columns = [
+        {
+            name: 'handle', 
+            options: { customBodyRender: (value) => <a href={`https://twitter.com/${value}`} target='_blank' rel='noreferrer'>{`@${value}`}</a> }}, 
+        'post', 
+        {
+            name: 'retweets',
+            options: { customBodyRender: (value) => <center>{value}</center> }
     }];
 
     const options = {
@@ -29,7 +21,7 @@ function ViralTweetChart({ chartData }) {
         viewColumns: false,
         elevation: 0,
         pagination: false,
-        tableBodyHeight: '400px',
+        tableBodyHeight: '375px',
         setTableProps: () => {
             return {
                 padding: 'none',
@@ -39,38 +31,43 @@ function ViralTweetChart({ chartData }) {
     };
   
     const getMuiTheme = () => createMuiTheme({
-      overrides: {
-        MuiTypography: {
-            h6: {
-                fontSize: 14,
-                fontWeight: 550
-            }
-        },
-        MUIDataTableHeadCell: {
-            contentWrapper: {
-                justifyContent: 'center'
+        overrides: {
+            MuiToolbar: {
+                gutters: {
+                    paddingLeft: '0 !important'
+                }
             },
-            data: {
-                fontSize: 12,
-                fontWeight: 'bold',
-                textTransform: 'uppercase'
-            }
-        },
-        MUIDataTableBodyCell: {
-            root: {
-                fontSize: 12,
-                padding: 3,
-                paddingRight: 5
+            MuiTypography: {
+                h6: {
+                    fontSize: 14,
+                    fontWeight: 550
+                }
+            },
+            MUIDataTableHeadCell: {
+                contentWrapper: {
+                    justifyContent: 'center'
+                },
+                data: {
+                    fontSize: 12,
+                    fontWeight: 'bold',
+                    textTransform: 'uppercase'
+                }
+            },
+            MUIDataTableBodyCell: {
+                root: {
+                    fontSize: 12,
+                    padding: 3,
+                    paddingRight: 5
+                }
             }
         }
-      }
     });
 
     return (
-        <div className="viral-tweets">
+        <div className='viral-tweets'>
             <MuiThemeProvider theme={getMuiTheme()}>
                 <MUIDataTable
-                    title={"TOP 25 VIRAL TWEETS"}
+                    title={'TOP 25 VIRAL TWEETS'}
                     data={chartData}
                     columns={columns}
                     options={options}

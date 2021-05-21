@@ -1,5 +1,5 @@
 import React from 'react';
-import { timeFromUnix } from '../../helpers/functions.js';
+import { timeFromUnix } from '../helpers/functions.js';
 
 const TimeChartTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {

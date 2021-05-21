@@ -7,7 +7,6 @@
 
 .about {
     padding-top: 10px;
-    padding-left: 20px;
     padding-right: 30px;
     font-size: 12px;
     grid-row: 1;
@@ -69,11 +68,6 @@ a {
     color: blue;
 }
 
-td {
-    padding: 5px;
-    border-bottom: .5;
-}
-
 .timechart-tooltip {
     background: white;
     padding-top: 8px;
@@ -81,4 +75,12 @@ td {
     padding-right: 30px;
     padding-left: 30px;
     border: .5px black solid;
+}
+
+.viral-user-tweets {
+    padding: 10px;
+}
+
+th.MuiTableCell-root {
+    font-size: 8pt;
 }

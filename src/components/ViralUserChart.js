@@ -7,15 +7,17 @@ import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableRow from "@material-ui/core/TableRow";
+import TableHead from "@material-ui/core/TableHead";
+import TableCell from "@material-ui/core/TableCell";
 
 function ViralUserChart({ chartData }) {
     const columns = 
-    [{
-        name: "handle", 
-        options: {
-            customBodyRender: (value) => {
-                return (<a href={`https://twitter.com/${value}`} target='_blank' rel="noreferrer">{`@${value}`}</a>)}
-        }}
+    [
+        {
+            name: 'handle', 
+            options: {
+                customBodyRender: (value) => <a href={`https://twitter.com/${value}`} target='_blank' rel='noreferrer'>{`@${value}`}</a>}
+        }
         , "follows"];
 
     const options = {
@@ -25,7 +27,7 @@ function ViralUserChart({ chartData }) {
         viewColumns: false,
         elevation: 0,
         pagination: false,
-        tableBodyHeight: '400px',
+        tableBodyHeight: '375px',
         setTableProps: () => {
             return {
                 padding: 'none',
@@ -39,11 +41,21 @@ function ViralUserChart({ chartData }) {
                     <tr>
                         <td colSpan={3}>
                             <TableContainer>
-                                <Table style={{ minWidth: "500" }} aria-label="simple table">
+                                <Table>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell align='center' size='small'><b>POST</b></TableCell>
+                                        </TableRow>
+                                    </TableHead>
                                     <TableBody>
-                                        {chartData[rowMeta.dataIndex].tweets.map(tweet => (
-                                            <TableRow key={tweet}><td>{tweet}</td></TableRow>
-                                        ))}
+                                        {chartData[rowMeta.dataIndex].tweets.map(
+                                            tweet => (
+                                                <TableRow key={tweet}>
+                                                    <TableCell component='th' scope='row' size='small'>
+                                                        {tweet}
+                                                    </TableCell>
+                                                </TableRow>
+                                            ))}
                                     </TableBody>
                                 </Table>
                             </TableContainer>
@@ -55,39 +67,44 @@ function ViralUserChart({ chartData }) {
     };
   
     const getMuiTheme = () => createMuiTheme({
-      overrides: {
-        MuiTypography: {
-            h6: {
-                fontSize: 14,
-                fontWeight: 550,
-            }
-        },
-        MUIDataTableHeadCell: {
-            contentWrapper: {
-                justifyContent: 'center'
+        overrides: {
+            MuiToolbar: {
+                gutters: {
+                    paddingLeft: '0 !important'
+                }
             },
-            data: {
-                fontSize: 12,
-                fontWeight: 'bold',
-                textTransform: 'uppercase'
-            }
-        },
-        MUIDataTableBodyCell: {
-            root: {
-                fontSize: 12,
-                padding: 3,
-                textAlign: 'center',
-                paddingRight: 5
+            MuiTypography: {
+                h6: {
+                    fontSize: 14,
+                    fontWeight: 550,
+                }
+            },
+            MUIDataTableHeadCell: {
+                contentWrapper: {
+                    justifyContent: 'center'
+                },
+                data: {
+                    fontSize: 12,
+                    fontWeight: 'bold',
+                    textTransform: 'uppercase'
+                }
+            },
+            MUIDataTableBodyCell: {
+                root: {
+                    fontSize: 12,
+                    padding: 3,
+                    textAlign: 'center',
+                    paddingRight: 5
+                }
             }
         }
-      }
     });
 
     return (
-        <div className="viral-users">
+        <div className='viral-users'>
             <MuiThemeProvider theme={getMuiTheme()}>
                 <MUIDataTable
-                    title={"TOP 10 VIRAL USERS (BY FOLLOWER GAIN IN 24HRS) + TWEETS DAY OF"}
+                    title={'TOP 10 USERS WITH MOST FOLLOWS IN 24HRS'}
                     data={chartData}
                     columns={columns}
                     options={options}
