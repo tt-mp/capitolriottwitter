@@ -3,12 +3,7 @@ import React from 'react';
 import MUIDataTable from "mui-datatables";
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableRow from "@material-ui/core/TableRow";
-import TableHead from "@material-ui/core/TableHead";
-import TableCell from "@material-ui/core/TableCell";
+import SubTable from './SubTable.jsx';
 
 function ViralUserChart({ chartData }) {
     const columns = 
@@ -29,41 +24,11 @@ function ViralUserChart({ chartData }) {
         pagination: false,
         tableBodyHeight: '375px',
         setTableProps: () => {
-            return {
-                padding: 'none',
-                size: 'small',
-        }},
+            return { padding: 'none', size: 'small' }},
         selectableRows: 'none',
         expandableRows: true,
-        renderExpandableRow: (rowData, rowMeta) => {
-            return (
-                <>
-                    <tr>
-                        <td colSpan={3}>
-                            <TableContainer>
-                                <Table>
-                                    <TableHead>
-                                        <TableRow>
-                                            <TableCell align='center' size='small'><b>POST</b></TableCell>
-                                        </TableRow>
-                                    </TableHead>
-                                    <TableBody>
-                                        {chartData[rowMeta.dataIndex].tweets.map(
-                                            tweet => (
-                                                <TableRow key={tweet}>
-                                                    <TableCell component='th' scope='row' size='small'>
-                                                        {tweet}
-                                                    </TableCell>
-                                                </TableRow>
-                                            ))}
-                                    </TableBody>
-                                </Table>
-                            </TableContainer>
-                        </td>
-                    </tr>
-                </>
-            );
-        },
+        renderExpandableRow: (rowData, rowMeta) => 
+            <SubTable title='POST' rows={chartData[rowMeta.dataIndex].tweets} />
     };
   
     const getMuiTheme = () => createMuiTheme({

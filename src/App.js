@@ -4,11 +4,11 @@ import TimeBarChart from './components/tweet_timechart/TimeBarChart.js';
 import HashTagPieChart from './components/hashtag_piechart/HashTagPieChart.js';
 import ViralTweetChart from './components/ViralTweetChart.js';
 import MentionsPieChart from './components/mentions_piechart/MentionsPieChart.js';
-import ViralUserChart from './components/ViralUserChart.js';
+import ViralUserChart from './components/viraluser_chart/ViralUserChart.js';
 
 import VerbByTime from './assets/json/verb_by_time.json';
 import ViralTweets from './assets/json/viral_tweets.json';
-import Hashtags from './assets/json/hashtags.json';
+import HashTagsByCount from './assets/json/hashtags.json';
 import MostMentioned from './assets/json/most_mentioned.json';
 import ViralAccounts from './assets/json/viral_accounts.json';
 
@@ -24,7 +24,7 @@ function App() {
       </div>
 
       <TimeBarChart chartData={VerbByTime} />
-      <HashTagPieChart chartData={Hashtags} />
+      <HashTagPieChart chartData={HashTagsByCount} />
       <ViralTweetChart chartData={ViralTweets} />
       <MentionsPieChart chartData={MostMentioned} />
       <ViralUserChart chartData={ViralAccounts} />
